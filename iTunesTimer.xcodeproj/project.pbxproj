@@ -11,6 +11,7 @@
 		28B2B0B91B1DCB09006DC0D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B2B0B81B1DCB09006DC0D2 /* Images.xcassets */; };
 		28B2B0BC1B1DCB09006DC0D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B2B0BA1B1DCB09006DC0D2 /* MainMenu.xib */; };
 		28B2B0C81B1DCB09006DC0D2 /* iTunes_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B0C71B1DCB09006DC0D2 /* iTunes_TimerTests.swift */; };
+		F2CA71161C231BA3007762CF /* iTunesTimerLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CA71151C231BA3007762CF /* iTunesTimerLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,14 +25,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		28B2B0B11B1DCB09006DC0D2 /* iTunes Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B2B0B11B1DCB09006DC0D2 /* iTunesTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B2B0B51B1DCB09006DC0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B2B0B61B1DCB09006DC0D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B2B0B81B1DCB09006DC0D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		28B2B0BB1B1DCB09006DC0D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		28B2B0C11B1DCB09006DC0D2 /* iTunes TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iTunes TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B2B0C11B1DCB09006DC0D2 /* iTunesTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B2B0C61B1DCB09006DC0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B2B0C71B1DCB09006DC0D2 /* iTunes_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes_TimerTests.swift; sourceTree = "<group>"; };
+		F2CA71151C231BA3007762CF /* iTunesTimerLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesTimerLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		28B2B0A81B1DCB09006DC0D2 = {
 			isa = PBXGroup;
 			children = (
+				F2CA71151C231BA3007762CF /* iTunesTimerLogo.png */,
 				28B2B0B31B1DCB09006DC0D2 /* iTunes Timer */,
 				28B2B0C41B1DCB09006DC0D2 /* iTunes TimerTests */,
 				28B2B0B21B1DCB09006DC0D2 /* Products */,
@@ -64,8 +67,8 @@
 		28B2B0B21B1DCB09006DC0D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28B2B0B11B1DCB09006DC0D2 /* iTunes Timer.app */,
-				28B2B0C11B1DCB09006DC0D2 /* iTunes TimerTests.xctest */,
+				28B2B0B11B1DCB09006DC0D2 /* iTunesTimer.app */,
+				28B2B0C11B1DCB09006DC0D2 /* iTunesTimer.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +112,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28B2B0B01B1DCB09006DC0D2 /* iTunes Timer */ = {
+		28B2B0B01B1DCB09006DC0D2 /* iTunesTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28B2B0CB1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunes Timer" */;
+			buildConfigurationList = 28B2B0CB1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunesTimer" */;
 			buildPhases = (
 				28B2B0AD1B1DCB09006DC0D2 /* Sources */,
 				28B2B0AE1B1DCB09006DC0D2 /* Frameworks */,
@@ -121,14 +124,14 @@
 			);
 			dependencies = (
 			);
-			name = "iTunes Timer";
+			name = iTunesTimer;
 			productName = "iTunes Timer";
-			productReference = 28B2B0B11B1DCB09006DC0D2 /* iTunes Timer.app */;
+			productReference = 28B2B0B11B1DCB09006DC0D2 /* iTunesTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		28B2B0C01B1DCB09006DC0D2 /* iTunes TimerTests */ = {
+		28B2B0C01B1DCB09006DC0D2 /* iTunesTimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28B2B0CE1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunes TimerTests" */;
+			buildConfigurationList = 28B2B0CE1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunesTimerTests" */;
 			buildPhases = (
 				28B2B0BD1B1DCB09006DC0D2 /* Sources */,
 				28B2B0BE1B1DCB09006DC0D2 /* Frameworks */,
@@ -139,9 +142,9 @@
 			dependencies = (
 				28B2B0C31B1DCB09006DC0D2 /* PBXTargetDependency */,
 			);
-			name = "iTunes TimerTests";
+			name = iTunesTimerTests;
 			productName = "iTunes TimerTests";
-			productReference = 28B2B0C11B1DCB09006DC0D2 /* iTunes TimerTests.xctest */;
+			productReference = 28B2B0C11B1DCB09006DC0D2 /* iTunesTimer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +153,9 @@
 		28B2B0A91B1DCB09006DC0D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Daniel Zuerrer";
 				TargetAttributes = {
 					28B2B0B01B1DCB09006DC0D2 = {
@@ -162,7 +167,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 28B2B0AC1B1DCB09006DC0D2 /* Build configuration list for PBXProject "iTunes Timer" */;
+			buildConfigurationList = 28B2B0AC1B1DCB09006DC0D2 /* Build configuration list for PBXProject "iTunesTimer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,8 +180,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				28B2B0B01B1DCB09006DC0D2 /* iTunes Timer */,
-				28B2B0C01B1DCB09006DC0D2 /* iTunes TimerTests */,
+				28B2B0B01B1DCB09006DC0D2 /* iTunesTimer */,
+				28B2B0C01B1DCB09006DC0D2 /* iTunesTimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,6 +193,7 @@
 			files = (
 				28B2B0B91B1DCB09006DC0D2 /* Images.xcassets in Resources */,
 				28B2B0BC1B1DCB09006DC0D2 /* MainMenu.xib in Resources */,
+				F2CA71161C231BA3007762CF /* iTunesTimerLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +228,7 @@
 /* Begin PBXTargetDependency section */
 		28B2B0C31B1DCB09006DC0D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 28B2B0B01B1DCB09006DC0D2 /* iTunes Timer */;
+			target = 28B2B0B01B1DCB09006DC0D2 /* iTunesTimer */;
 			targetProxy = 28B2B0C21B1DCB09006DC0D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -260,6 +266,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -326,7 +333,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "iTunes Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = iTunesTimer;
 			};
 			name = Debug;
 		};
@@ -337,7 +345,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "iTunes Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = iTunesTimer;
 			};
 			name = Release;
 		};
@@ -356,8 +365,9 @@
 				);
 				INFOPLIST_FILE = "iTunes TimerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunes Timer.app/Contents/MacOS/iTunes Timer";
+				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = iTunesTimer;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesTimer.app/Contents/MacOS/iTunesTimer";
 			};
 			name = Debug;
 		};
@@ -372,15 +382,16 @@
 				);
 				INFOPLIST_FILE = "iTunes TimerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunes Timer.app/Contents/MacOS/iTunes Timer";
+				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = iTunesTimer;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesTimer.app/Contents/MacOS/iTunesTimer";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		28B2B0AC1B1DCB09006DC0D2 /* Build configuration list for PBXProject "iTunes Timer" */ = {
+		28B2B0AC1B1DCB09006DC0D2 /* Build configuration list for PBXProject "iTunesTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B2B0C91B1DCB09006DC0D2 /* Debug */,
@@ -389,21 +400,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28B2B0CB1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunes Timer" */ = {
+		28B2B0CB1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunesTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B2B0CC1B1DCB09006DC0D2 /* Debug */,
 				28B2B0CD1B1DCB09006DC0D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		28B2B0CE1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunes TimerTests" */ = {
+		28B2B0CE1B1DCB09006DC0D2 /* Build configuration list for PBXNativeTarget "iTunesTimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B2B0CF1B1DCB09006DC0D2 /* Debug */,
 				28B2B0D01B1DCB09006DC0D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

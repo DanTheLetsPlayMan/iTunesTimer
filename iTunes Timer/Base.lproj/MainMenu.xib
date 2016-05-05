@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,7 +14,11 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="iTunesTimer" customModuleProvider="target">
             <connections>
                 <outlet property="commandDisplay" destination="C2N-4N-ele" id="1ds-QT-SCt"/>
+                <outlet property="fifteenMin" destination="DaA-He-Vvd" id="HKD-UE-jMr"/>
+                <outlet property="fortyFiveMin" destination="O1I-NS-oIZ" id="0k1-Dg-Pmh"/>
+                <outlet property="sixtyMin" destination="Kdo-ya-A9R" id="gdE-hj-Gqi"/>
                 <outlet property="statusMenu" destination="zVR-i9-KVZ" id="tHj-7h-H0k"/>
+                <outlet property="thirtyMin" destination="QSh-c6-vA7" id="Mu9-IF-2nk"/>
                 <outlet property="timeDisplay" destination="Yf2-yU-50I" id="ulc-PG-AeK"/>
             </connections>
         </customObject>
@@ -85,6 +89,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="SafariClicked:" target="Voe-Tx-rLC" id="qDD-wO-65C"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="SoundCloud" id="aQN-jo-GRX">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="SoundCloudClicked:" target="Voe-Tx-rLC" id="hqu-zt-peL"/>
                                 </connections>
                             </menuItem>
                         </items>

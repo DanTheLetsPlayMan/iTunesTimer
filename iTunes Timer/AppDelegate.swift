@@ -218,10 +218,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // create local server to listen for timer start
     func createServer(){
         
+        let ipAddress = NSHost.currentHost().addresses[3]
+        print(ipAddress)
+        
         backgroundThread(background: {
             // Your function here to run in the background
             
-            let server:TCPServer = TCPServer(addr: "127.0.0.1", port: 8989)
+            let server:TCPServer = TCPServer(addr: ipAddress, port: 8989)
             let (success, msg) = server.listen()
             if success {
                 while true {

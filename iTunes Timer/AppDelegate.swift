@@ -51,9 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     @IBAction func startClicked(sender: AnyObject) {
-        timer.invalidate();
-        counter = timerTime;
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(AppDelegate.changeTitle), userInfo: nil, repeats: true)
+        startTimer()
     }
     @IBAction func resetClicked(sender: AnyObject) {
         counter = timerTime;
@@ -98,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         commandDisplay.title = activeCommand
 
     }
-
+    
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -112,10 +110,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // set times in menu display
         initialiseMenuTimesDisplay()
         
+        // start server
+        createServer()
+        
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+    }
+    
+    func startTimer() {
+        timer.invalidate();
+        counter = timerTime;
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(AppDelegate.changeTitle), userInfo: nil, repeats: true)
     }
 
     // update menu bar title with current remaining time
@@ -197,6 +204,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sixtyMin.title = createTimeString(availableTimesInMinutes[3] * 60)
     }
     
+    func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+            if(background != nil){ background!(); }
+            
+            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+            dispatch_after(popTime, dispatch_get_main_queue()) {
+                if(completion != nil){ completion!(); }
+            }
+        }
+    }
     
+    // create local server to listen for timer start
+    func createServer(){
+        
+        backgroundThread(background: {
+            // Your function here to run in the background
+            
+            let server:TCPServer = TCPServer(addr: "127.0.0.1", port: 8989)
+            let (success, msg) = server.listen()
+            if success {
+                while true {
+                    if server.accept() != nil {
+                        print("command received")
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // update some UI
+                            self.startTimer()
+                        }
+                        
+                    } else {
+                        print("accept error")
+                    }
+                }
+            } else {
+                print(msg)
+            }
+
+        })
+    }
 }
 

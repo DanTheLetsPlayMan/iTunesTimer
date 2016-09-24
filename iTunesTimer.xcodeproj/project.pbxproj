@@ -11,9 +11,6 @@
 		28B2B0B91B1DCB09006DC0D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B2B0B81B1DCB09006DC0D2 /* Images.xcassets */; };
 		28B2B0BC1B1DCB09006DC0D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B2B0BA1B1DCB09006DC0D2 /* MainMenu.xib */; };
 		28B2B0C81B1DCB09006DC0D2 /* iTunes_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2B0C71B1DCB09006DC0D2 /* iTunes_TimerTests.swift */; };
-		F2C3531E1D8C0C87002AC774 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C3531D1D8C0C87002AC774 /* ysocket.swift */; };
-		F2C353201D8C0C9A002AC774 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C3531F1D8C0C9A002AC774 /* ytcpsocket.swift */; };
-		F2C353231D8C0E43002AC774 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = F2C353221D8C0E43002AC774 /* ytcpsocket.c */; };
 		F2CA71161C231BA3007762CF /* iTunesTimerLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CA71151C231BA3007762CF /* iTunesTimerLogo.png */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +33,7 @@
 		28B2B0C11B1DCB09006DC0D2 /* iTunesTimer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesTimer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B2B0C61B1DCB09006DC0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B2B0C71B1DCB09006DC0D2 /* iTunes_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes_TimerTests.swift; sourceTree = "<group>"; };
-		F2C3531D1D8C0C87002AC774 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
-		F2C3531F1D8C0C9A002AC774 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
 		F2C353211D8C0E43002AC774 /* iTunesTimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTunesTimer-Bridging-Header.h"; sourceTree = "<group>"; };
-		F2C353221D8C0E43002AC774 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		F2CA71151C231BA3007762CF /* iTunesTimerLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesTimerLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +77,6 @@
 		28B2B0B31B1DCB09006DC0D2 /* iTunes Timer */ = {
 			isa = PBXGroup;
 			children = (
-				F2C3531D1D8C0C87002AC774 /* ysocket.swift */,
-				F2C353221D8C0E43002AC774 /* ytcpsocket.c */,
-				F2C3531F1D8C0C9A002AC774 /* ytcpsocket.swift */,
 				28B2B0B61B1DCB09006DC0D2 /* AppDelegate.swift */,
 				28B2B0B81B1DCB09006DC0D2 /* Images.xcassets */,
 				28B2B0BA1B1DCB09006DC0D2 /* MainMenu.xib */,
@@ -166,14 +157,16 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Daniel Zuerrer";
 				TargetAttributes = {
 					28B2B0B01B1DCB09006DC0D2 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 					};
 					28B2B0C01B1DCB09006DC0D2 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 28B2B0B01B1DCB09006DC0D2;
 					};
 				};
@@ -222,10 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2C353201D8C0C9A002AC774 /* ytcpsocket.swift in Sources */,
-				F2C3531E1D8C0C87002AC774 /* ysocket.swift in Sources */,
 				28B2B0B71B1DCB09006DC0D2 /* AppDelegate.swift in Sources */,
-				F2C353231D8C0E43002AC774 /* ytcpsocket.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +262,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -317,8 +309,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -337,6 +331,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -352,6 +347,7 @@
 				PRODUCT_NAME = iTunesTimer;
 				SWIFT_OBJC_BRIDGING_HEADER = "iTunes Timer/iTunesTimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -366,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iTunesTimer;
 				SWIFT_OBJC_BRIDGING_HEADER = "iTunes Timer/iTunesTimer-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -386,6 +383,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iTunesTimer;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesTimer.app/Contents/MacOS/iTunesTimer";
 			};
 			name = Debug;
@@ -403,6 +401,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DAN.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iTunesTimer;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTunesTimer.app/Contents/MacOS/iTunesTimer";
 			};
 			name = Release;

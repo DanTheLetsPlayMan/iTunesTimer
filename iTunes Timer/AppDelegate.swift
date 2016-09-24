@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var timerTime = 60 * 30
     var counter = 0;
-    var timer = NSTimer()
+    var timer = Timer()
 
     @IBOutlet weak var sixtyMin: NSMenuItem!
     @IBOutlet weak var fortyFiveMin: NSMenuItem!
@@ -42,63 +42,63 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+    let statusItem = NSStatusBar.system().statusItem(withLength: -1) // NSVariableStatusItemLength
     
     
     
-    @IBAction func quitClicked(sender: AnyObject) {
-        NSApplication.sharedApplication().terminate(self)
+    @IBAction func quitClicked(_ sender: AnyObject) {
+        NSApplication.shared().terminate(self)
         
     }
-    @IBAction func startClicked(sender: AnyObject) {
+    @IBAction func startClicked(_ sender: AnyObject) {
         startTimer()
     }
-    @IBAction func resetClicked(sender: AnyObject) {
+    @IBAction func resetClicked(_ sender: AnyObject) {
         counter = timerTime;
         timer.invalidate()
         statusItem.title = menuText
     }
-    @IBAction func sixtyClicked(sender: AnyObject) {
+    @IBAction func sixtyClicked(_ sender: AnyObject) {
         resetClicked(sender);
         changeTimerTime(availableTimesInMinutes[3])
     }
-    @IBAction func fortyFiveClicked(sender: AnyObject) {
+    @IBAction func fortyFiveClicked(_ sender: AnyObject) {
         resetClicked(sender);
         changeTimerTime(availableTimesInMinutes[2])
     }
-    @IBAction func thirtyClicked(sender: AnyObject) {
+    @IBAction func thirtyClicked(_ sender: AnyObject) {
         resetClicked(sender);
         changeTimerTime(availableTimesInMinutes[1])
     }
-    @IBAction func fifteenClicked(sender: AnyObject) {
+    @IBAction func fifteenClicked(_ sender: AnyObject) {
         resetClicked(sender);
         changeTimerTime(availableTimesInMinutes[0])
     }
     
     
     
-    @IBAction func iTunesClicked(sender: AnyObject) {
+    @IBAction func iTunesClicked(_ sender: AnyObject) {
         renewActiveCommand(iTunesString);
     }
-    @IBAction func VLCClicked(sender: AnyObject) {
+    @IBAction func VLCClicked(_ sender: AnyObject) {
         renewActiveCommand(VLCString);
     }
-    @IBAction func SafariClicked(sender: AnyObject) {
+    @IBAction func SafariClicked(_ sender: AnyObject) {
         renewActiveCommand(YouTubeString);
     }
     
-    @IBAction func SoundCloudClicked(sender: AnyObject) {
+    @IBAction func SoundCloudClicked(_ sender: AnyObject) {
         renewActiveCommand(SoundCloudString);
     }
 
-    func renewActiveCommand(newActiveCommand: String){
+    func renewActiveCommand(_ newActiveCommand: String){
         activeCommand = newActiveCommand;
         commandDisplay.title = activeCommand
 
     }
     
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         statusItem.title = menuText
         statusItem.menu = statusMenu
@@ -110,19 +110,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // set times in menu display
         initialiseMenuTimesDisplay()
         
-        // start server
-        createServer()
-        
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
     func startTimer() {
         timer.invalidate();
         counter = timerTime;
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: #selector(AppDelegate.changeTitle), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(AppDelegate.changeTitle), userInfo: nil, repeats: true)
     }
 
     // update menu bar title with current remaining time
@@ -158,7 +155,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // creating a time string (min:sec) from a time in seconds
-    func createTimeString(timeInSeconds: Int) -> String {
+    func createTimeString(_ timeInSeconds: Int) -> String {
         
         let minutes = timeInSeconds / 60;
         let seconds = timeInSeconds % 60;
@@ -173,7 +170,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // update the remaining time of the timer
-    func changeTimerTime(newTime: Int) {
+    func changeTimerTime(_ newTime: Int) {
         timerTime = 60 * newTime;
         timeDisplay.title = createTimeString(timerTime)
 
@@ -204,46 +201,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sixtyMin.title = createTimeString(availableTimesInMinutes[3] * 60)
     }
     
-    func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
-            if(background != nil){ background!(); }
-            
-            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-            dispatch_after(popTime, dispatch_get_main_queue()) {
-                if(completion != nil){ completion!(); }
-            }
-        }
-    }
-    
-    // create local server to listen for timer start
-    func createServer(){
-        
-        let ipAddress = NSHost.currentHost().addresses[3]
-        print(ipAddress)
-        
-        backgroundThread(background: {
-            // Your function here to run in the background
-            
-            let server:TCPServer = TCPServer(addr: ipAddress, port: 8989)
-            let (success, msg) = server.listen()
-            if success {
-                while true {
-                    if server.accept() != nil {
-                        print("command received")
-                        dispatch_async(dispatch_get_main_queue()) {
-                            // update some UI
-                            self.startTimer()
-                        }
-                        
-                    } else {
-                        print("accept error")
-                    }
-                }
-            } else {
-                print(msg)
-            }
 
-        })
-    }
+    
 }
 

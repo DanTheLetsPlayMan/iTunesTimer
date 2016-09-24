@@ -143,12 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // pause playback of selected application
     func pausePlayback() {
         if let scriptObject = NSAppleScript(source: commandScripts[activeCommand]!) {
-            if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(
-                &error) {
-                    print(output.stringValue)
-            } else if (error != nil) {
-                print("error: \(error)")
-            }
+            scriptObject.executeAndReturnError(&error)
         }
         
         print("paused " + activeCommand)
@@ -201,7 +196,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         sixtyMin.title = createTimeString(availableTimesInMinutes[3] * 60)
     }
     
-
+   
     
 }
 
